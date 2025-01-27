@@ -1,6 +1,7 @@
+// ignore_for_file: unused_element
+
 import 'package:careem/core/common/common_widgets.dart';
 import 'package:careem/core/constants/constants.dart';
-import 'package:careem/core/enums/app_enums.dart';
 import 'package:careem/core/widgets/custom_gap.dart';
 import 'package:careem/core/widgets/custom_icon.dart';
 import 'package:careem/core/widgets/text_widget.dart';
@@ -17,7 +18,7 @@ class AppMenu extends StatelessWidget {
         bottomLeft: Radius.circular(8.w),
         bottomRight: Radius.circular(8.w),
       ),
-      child: Container(
+      child: SizedBox(
         height: 30.h,
         child: Stack(
           children: [
@@ -50,7 +51,7 @@ class AppMenu extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CommonWidgets.customAppBarIcon(icon: icon, opTap: onTap, size: 20.sp),
-        CustomGap(heightFactor: .01),
+        const CustomGap(heightFactor: .01),
         TextWidget(
           text: label,
         ),

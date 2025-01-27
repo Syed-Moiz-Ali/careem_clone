@@ -11,12 +11,11 @@ import '../../../../../../core/widgets/custom_textfiled.dart';
 import '../../../../../../core/widgets/text_widget.dart';
 
 class AddressSelectionBottomSheet extends StatelessWidget {
-  final TextEditingController controller;
-
-  const AddressSelectionBottomSheet({super.key, required this.controller});
+  const AddressSelectionBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController controller = TextEditingController();
     return SizedBox(
       width: 100.w,
       height: 50.h,

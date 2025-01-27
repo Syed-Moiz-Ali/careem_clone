@@ -40,11 +40,10 @@ class TopSection extends StatelessWidget {
 class _LocationSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final TextEditingController controller = TextEditingController();
     return InkWell(
       onTap: () {
         CommonFunctions.customBottomSheet(
-          child: AddressSelectionBottomSheet(controller: controller),
+          child: const AddressSelectionBottomSheet(),
         );
       },
       child: Row(

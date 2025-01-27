@@ -75,24 +75,17 @@ class PrimaryButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(borderRadius ?? 5),
               boxShadow: boxShadows,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                if (child != null) ...[
-                  child!,
-                ],
-                if (text != null) ...[
-                  TextWidget(
-                    text: text!,
-                    fontSize: fontSize ?? 15,
-                    color: textColor ?? AppColors.backgroundColorLight,
-                    styleType: styleType ?? TextStyleType.body,
-                    fontWeight: fontWeight,
+            child: child != null
+                ? child!
+                : Center(
+                    child: TextWidget(
+                      text: text!,
+                      fontSize: fontSize ?? 15,
+                      color: textColor ?? AppColors.backgroundColorLight,
+                      styleType: styleType ?? TextStyleType.body,
+                      fontWeight: fontWeight,
+                    ),
                   ),
-                ]
-              ],
-            ),
           ),
         ),
       ),

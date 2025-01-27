@@ -56,6 +56,7 @@ class CommonFunctions {
     Widget? child,
     Function? onCancel,
     bool addPadding = true,
+    bool isScrollControlled = true,
   }) {
     if (child == null) {
       // Ensure the required parameters are provided if no child is given
@@ -68,7 +69,7 @@ class CommonFunctions {
     }
     showModalBottomSheet(
       context: Aio.navigationKey.currentContext!,
-      isScrollControlled: true,
+      isScrollControlled: isScrollControlled,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),

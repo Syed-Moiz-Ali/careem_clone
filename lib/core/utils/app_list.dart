@@ -510,4 +510,59 @@ class AppList {
       'suffixIcon': Icons.keyboard_arrow_right_rounded,
     },
   ];
+  static final launderyServices = [
+    {
+      'imageUrl': 'assets/images/dry_cleaning.png',
+      'title': 'Dry cleaning & Laundry',
+    },
+    {
+      'imageUrl': 'assets/images/shoe_care.png',
+      'title': 'Shoe & Bag Care',
+    },
+  ];
+
+  static final launderyServicesPricingOptions = [
+    {
+      'imageUrl': 'assets/images/clean_press.png',
+      'title': 'Clean & Press',
+      'discountPrice': 'AED 13',
+      'regularPrice': 'AED 18',
+      'type': 'per shirt',
+    },
+    {
+      'imageUrl': 'assets/images/press_only.png',
+      'title': 'Press Only',
+      'discountPrice': '',
+      'regularPrice': '',
+      'type': '',
+    },
+    {
+      'imageUrl': 'assets/images/home_care.png',
+      'title': 'Home Care',
+      'discountPrice': 'AED 85',
+      'regularPrice': 'AED 66',
+      'type': 'per bag',
+    },
+    {
+      'imageUrl': 'assets/images/wash_fold.png',
+      'title': 'Wash & Fold',
+      'discountPrice': 'AED 75',
+      'regularPrice': 'AED 55',
+      'type': 'per bag',
+    },
+    {
+      'imageUrl': 'assets/images/shoe_bag_care.png',
+      'title': 'Shoe & Bag Care',
+      'discountPrice': '',
+      'regularPrice': '',
+      'type': '',
+    },
+    {
+      'imageUrl': 'assets/images/luxury_cleaning.png',
+      'title': 'Luxury Cleaning by The Finery',
+      'discountPrice': '',
+      'regularPrice': '',
+      'type': '',
+    },
+  ];
 }

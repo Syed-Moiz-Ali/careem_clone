@@ -239,47 +239,51 @@ class CommonWidgets {
     double? fontSize,
     Color? borderColor,
     Color? textColor,
+    Function()? onTap,
     bool isSelected = false,
     TextStyleType styleType = TextStyleType.body1,
     ChipDirection direction = ChipDirection.row, // Default to Row
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: isSelected ? AppColors.primaryColor.withOpacity(.3) : null,
-        border: Border.all(
-            color: isSelected
-                ? AppColors.primaryColor
-                : borderColor ?? AppColors.backgroundColorDark),
-        borderRadius: BorderRadius.circular(120),
-      ),
-      child: CustomPadding(
-        horizontalFactor: .03,
-        verticalFactor: .007,
-        child: direction == ChipDirection.row
-            ? Row(
-                // mainAxisSize: MainAxisSize.min,
-                children: [
-                  if (icon != null) icon, // Show icon if provided
-                  TextWidget(
-                    text: text,
-                    styleType: styleType,
-                    fontSize: fontSize,
-                    color: textColor,
-                  ),
-                ],
-              )
-            : Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  if (icon != null) icon, // Show icon if provided
-                  TextWidget(
-                    text: text,
-                    styleType: styleType,
-                    fontSize: fontSize,
-                    color: textColor,
-                  ),
-                ],
-              ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          color: isSelected ? AppColors.primaryColor.withOpacity(.3) : null,
+          border: Border.all(
+              color: isSelected
+                  ? AppColors.primaryColor
+                  : borderColor ?? AppColors.backgroundColorDark),
+          borderRadius: BorderRadius.circular(120),
+        ),
+        child: CustomPadding(
+          horizontalFactor: .03,
+          verticalFactor: .007,
+          child: direction == ChipDirection.row
+              ? Row(
+                  // mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (icon != null) icon, // Show icon if provided
+                    TextWidget(
+                      text: text,
+                      styleType: styleType,
+                      fontSize: fontSize,
+                      color: textColor,
+                    ),
+                  ],
+                )
+              : Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (icon != null) icon, // Show icon if provided
+                    TextWidget(
+                      text: text,
+                      styleType: styleType,
+                      fontSize: fontSize,
+                      color: textColor,
+                    ),
+                  ],
+                ),
+        ),
       ),
     );
   }
