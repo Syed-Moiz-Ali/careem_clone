@@ -43,6 +43,7 @@ class _LocationSelector extends StatelessWidget {
     return InkWell(
       onTap: () {
         CommonFunctions.customBottomSheet(
+          addPadding: false,
           child: const AddressSelectionBottomSheet(),
         );
       },

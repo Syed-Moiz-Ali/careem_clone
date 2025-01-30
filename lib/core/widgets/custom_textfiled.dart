@@ -1,3 +1,4 @@
+import 'package:careem/core/widgets/custom_padding.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../constants/constants.dart';
@@ -12,6 +13,7 @@ class CustomTextField extends StatelessWidget {
       this.keyboardType = TextInputType.text,
       this.validator,
       this.onSubmitted,
+      this.contentPadding,
       this.prefixIcon,
       this.suffixIcon,
       this.enabled = true,
@@ -41,6 +43,7 @@ class CustomTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final dynamic validator;
   final bool? obscureText;
+  final EdgeInsetsGeometry? contentPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +58,8 @@ class CustomTextField extends StatelessWidget {
         onChanged: onChanged,
         obscureText: obscureText ?? false,
         decoration: InputDecoration(
+          contentPadding: contentPadding ??
+              const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
           hintText: hintText,
           hintStyle: const TextStyle(color: AppColors.greyColor),
           counterStyle: const TextStyle(color: AppColors.transparent),
@@ -80,8 +85,7 @@ class CustomTextField extends StatelessWidget {
                   color: showBorder
                       ? AppColors.backgroundColorDark.withOpacity(.3)
                       : AppColors.transparent)),
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+
           filled: isFilled,
           fillColor: filledColor,
         ),

@@ -1,3 +1,4 @@
+import 'package:careem/core/navigation/navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../../core/common/common_functions.dart';
@@ -10,6 +11,7 @@ import '../../../../../core/widgets/custom_padding.dart';
 import '../../../../../core/widgets/primary_button.dart';
 import '../../../../../core/widgets/text_widget.dart';
 import '../saloon_spa/widgets/address_selection_bottom_sheet.dart';
+import 'laundry_order_summary.dart';
 import 'widgets/delivery_instructions.dart';
 import 'widgets/schedule_collection_bottomsheet.dart';
 import 'widgets/schedule_delivery_screen.dart';
@@ -192,11 +194,13 @@ class CollectionDeliveryScreen extends StatelessWidget {
               bgColor: AppColors.backgroundColorLight,
               textColor: AppColors.backgroundColorDark,
               borderRadius: 100.w,
-              border: BorderSide(color: AppColors.backgroundColorDark),
+              border: const BorderSide(color: AppColors.backgroundColorDark),
             ),
             Expanded(
                 child: PrimaryButton(
-              onTap: () {},
+              onTap: () {
+                NH.navigateTo(const LaundryOrderSummary());
+              },
               text: 'Continue',
               elevation: 0,
               width: .35,

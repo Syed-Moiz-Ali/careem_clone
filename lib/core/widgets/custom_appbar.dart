@@ -1,10 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api, unused_element, unused_element, duplicate_ignore
 
 import 'package:careem/core/common/common_widgets.dart';
-import 'package:careem/core/widgets/custom_gap.dart';
+import 'package:careem/core/widgets/custom_padding.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sizer/sizer.dart';
 import '../enums/app_enums.dart';
 import '../global/global.dart';
 import '../../../providers/theme_provider.dart';
@@ -56,6 +55,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         builder: (context, isDarkTheme, _) {
           return Center(
             child: AppBar(
+              // leading: CommonWidgets.navigationBackIcon(),
+              // leadingWidth: 10.h,
               // backgroundColor: backgroundColor,
               forceMaterialTransparency: true,
 
@@ -70,7 +71,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                           ? MainAxisAlignment.center
                           : MainAxisAlignment.start,
                       children: [
-                        if (!centerTitle) const CustomGap(widthFactor: .15),
+                        // if (!centerTitle) const CustomGap(widthFactor: .15),
+                        if (automaticallyImplyLeading == true)
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: CustomPadding(
+                              rightFactor: .03,
+                              child: CommonWidgets.navigationBackIcon(),
+                            ),
+                          ),
                         Expanded(
                           child: TextWidget(
                             overflow: TextOverflow.ellipsis,
@@ -87,12 +96,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       ],
                     ),
                   ),
-                  if (automaticallyImplyLeading == true)
-                    Positioned(
-                        // alignment: Alignment.centerLeft,
-                        left: 0,
-                        top: 1.5.h,
-                        child: CommonWidgets.navigationBackIcon())
+                  // if (automaticallyImplyLeading == true)
+                  //   Align(
+                  //       alignment: Alignment.centerLeft,
+                  //       // alignment: Alignment.centerLeft,
+                  //       // left: 0,
+                  //       // top: 0,
+                  //       // bottom: 0,
+                  //       // height: appBarHeight * .7,
+                  //       // width: appBarHeight * .7,
+                  //       child: CommonWidgets.navigationBackIcon())
                 ],
               ),
               actions: [

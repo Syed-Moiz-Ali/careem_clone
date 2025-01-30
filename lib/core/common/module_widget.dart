@@ -53,7 +53,7 @@ class _ModuleWidgetState extends State<ModuleWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.width ?? 30.w, // Width of each item
+      width: widget.width ?? 25.w, // Width of each item
       height: widget.height ?? 11.h, // Fixed height for each item
       // padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
       decoration: BoxDecoration(
@@ -111,6 +111,7 @@ class _ModuleWidgetState extends State<ModuleWidget> {
           TextWidget(
             text: widget.module['title'],
             fontSize: 14.sp,
+            fontWeight: FontWeight.bold,
           ),
         ],
       ),
