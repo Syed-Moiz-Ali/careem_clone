@@ -2,6 +2,7 @@ import 'package:careem/core/constants/images_constant.dart';
 import 'package:careem/core/widgets/custom_image.dart';
 import 'package:careem/modules/all_services/all_services.dart';
 import 'package:careem/modules/eat_anything/dineout/screens/dine_out_screen.dart';
+import 'package:careem/modules/get_anything/shop/screens/shops_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -160,6 +161,7 @@ class AppList {
     {
       'title': 'Shops',
       'icon': ModulesImages.shopsIcon,
+      "screen": const ShopsScreen(),
     },
     {
       'title': 'Home Services',
@@ -170,6 +172,40 @@ class AppList {
       'title': 'All Services',
       'icon': null,
       "screen": const AllServices(),
+    },
+  ];
+  static final List shopsModulesList = [
+    {
+      'title': 'Pharmacy',
+      'icon': ModulesImages.ridesIcon,
+    },
+    {
+      'title': 'Super market',
+      'icon': ModulesImages.ridesIcon,
+    },
+    {
+      'title': 'Gifs flowers',
+      'icon': ModulesImages.ridesIcon,
+    },
+    {
+      'title': 'Butchery',
+      'icon': ModulesImages.ridesIcon,
+    },
+    {
+      'title': 'Pet Shops',
+      'icon': ModulesImages.ridesIcon,
+    },
+    {
+      'title': 'Coffee & Sweets',
+      'icon': ModulesImages.ridesIcon,
+    },
+    {
+      'title': 'Specialty Grocery',
+      'icon': ModulesImages.ridesIcon,
+    },
+    {
+      'title': 'More Shops',
+      'icon': ModulesImages.ridesIcon,
     },
   ];
   static const List dineOutList = [

@@ -1,4 +1,3 @@
-import 'package:careem/core/widgets/custom_padding.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../constants/constants.dart';

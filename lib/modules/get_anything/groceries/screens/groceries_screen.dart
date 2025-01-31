@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../core/common/common_widgets.dart';
 import '../../../../core/common/offers_widget.dart';
+import '../../../../core/navigation/navigator.dart';
 import '../../../../core/widgets/custom_image.dart';
 import '../widgets/products_list.dart';
+import 'groceriesByCategory/groceries_by_category_screen.dart';
 
 class GroceriesScreen extends StatelessWidget {
   const GroceriesScreen({super.key});
@@ -54,26 +56,32 @@ class GroceriesScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               var grocery = groceriesList[index];
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  // color: AppColors.disabledColor,
-                ),
-                child: Column(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(6),
-                      child: CustomImageWidget(
-                        height: 18.h,
-                        width: 27.w, // Fixed height for the image
-                        fit: BoxFit.contain,
-                        imageUrl: grocery['src'],
+              return GestureDetector(
+                onTap: () {
+                  NH.navigateTo(
+                      const GroceriesByCategoryScreen(category: '{title}'));
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(6),
+                    // color: AppColors.disabledColor,
+                  ),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(6),
+                        child: CustomImageWidget(
+                          height: 18.h,
+                          width: 27.w, // Fixed height for the image
+                          fit: BoxFit.contain,
+                          imageUrl: grocery['src'],
+                        ),
                       ),
-                    ),
-                    // const SizedBox(
-                    //     height: 8), // Add some spacing between image and text
-                    // const TextWidget(text: 'categ'),
-                  ],
+                      // const SizedBox(
+                      //     height: 8), // Add some spacing between image and text
+                      // const TextWidget(text: 'categ'),
+                    ],
+                  ),
                 ),
               );
             },

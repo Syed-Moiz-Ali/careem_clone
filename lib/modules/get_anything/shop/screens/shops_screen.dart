@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import '../../../core/common/common_functions.dart';
-import '../../../core/common/module_widget.dart';
-import '../../../core/common/offers_widget.dart';
-import '../../../core/enums/app_enums.dart';
-import '../../../core/navigation/navigator.dart';
-import '../../../core/utils/app_list.dart';
-import '../../../core/widgets/custom_appbar.dart';
-import '../../../core/widgets/custom_gap.dart';
-import '../../../core/widgets/custom_icon.dart';
-import '../../../core/widgets/custom_textfiled.dart';
-import '../../../core/widgets/text_widget.dart';
-import '../../other/home_sevices/modules/saloon_spa/widgets/address_selection_bottom_sheet.dart';
+import '../../../../core/common/common_functions.dart';
+import '../../../../core/common/module_widget.dart';
+import '../../../../core/common/offers_widget.dart';
+import '../../../../core/enums/app_enums.dart';
+import '../../../../core/navigation/navigator.dart';
+import '../../../../core/utils/app_list.dart';
+import '../../../../core/widgets/custom_appbar.dart';
+import '../../../../core/widgets/custom_gap.dart';
+import '../../../../core/widgets/custom_icon.dart';
+import '../../../../core/widgets/custom_textfiled.dart';
+import '../../../../core/widgets/text_widget.dart';
+import '../../../other/home_sevices/modules/saloon_spa/widgets/address_selection_bottom_sheet.dart';
+import '../widgets/all_shops.dart';
+import '../widgets/recommended_shops.dart';
 
 class ShopsScreen extends StatelessWidget {
   const ShopsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final modulesList = AppList.modulesList;
+    final modulesList = AppList.shopsModulesList;
 
     return Scaffold(
       appBar: CustomAppBar(
@@ -36,8 +38,9 @@ class ShopsScreen extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     CommonFunctions.customBottomSheet(
-                        addPadding: false,
-                        child: const AddressSelectionBottomSheet());
+                      addPadding: false,
+                      child: const AddressSelectionBottomSheet(),
+                    );
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -72,6 +75,8 @@ class ShopsScreen extends StatelessWidget {
         slivers: [
           _buildModules(modulesList),
           SliverToBoxAdapter(child: _buildOffers()),
+          const SliverToBoxAdapter(child: RecommendedShops()),
+          const SliverToBoxAdapter(child: AllShops()),
         ],
       ),
     );

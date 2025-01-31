@@ -1,9 +1,8 @@
-import 'package:careem/modules/get_anything/shop/shops_screen.dart';
+import 'package:careem/modules/get_anything/shop/screens/shops_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../../core/common/common_widgets.dart';
 import '../../core/common/module_widget.dart';
-import '../../core/common/offers_widget.dart';
 import '../../core/constants/images_constant.dart';
 import '../../core/enums/app_enums.dart';
 import '../../core/widgets/custom_appbar.dart';

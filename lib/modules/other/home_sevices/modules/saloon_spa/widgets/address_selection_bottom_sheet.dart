@@ -24,7 +24,7 @@ class AddressSelectionBottomSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomGap(heightFactor: .02),
+            const CustomGap(heightFactor: .02),
             Align(
               alignment: Alignment.center,
               child: Container(

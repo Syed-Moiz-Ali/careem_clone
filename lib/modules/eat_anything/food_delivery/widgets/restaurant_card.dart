@@ -89,25 +89,25 @@ class RestaurantCard extends StatelessWidget {
 
   Widget _cardType1() {
     return _buildCardLayout(
-      imageUrl: ImagesPath.dummyFoodItem1,
-      title: 'Coffee House',
-      rating: '4.6',
-      time: '20 - 25 min',
-      details: 'Cafe,Coffee',
-      distance: '0.1 km',
-    );
+        imageUrl: ImagesPath.dummyFoodItem1,
+        title: 'Coffee House',
+        rating: '4.6',
+        time: '20 - 25 min',
+        details: 'Cafe,Coffee',
+        distance: '0.1 km',
+        cardType: RestaurantsCardType.nearBy);
   }
 
   Widget _cardType2() {
     return _buildCardLayout(
-      imageUrl: ImagesPath.dummyFoodItem2,
-      title: 'Mini & Co - Dutch Square',
-      rating: '4.6',
-      time: '20 - 25 min',
-      details: 'Cafe,Coffee',
-      distance: '0.1 km',
-      isRowLayout: true,
-    );
+        imageUrl: ImagesPath.dummyFoodItem2,
+        title: 'Mini & Co - Dutch Square',
+        rating: '4.6',
+        time: '20 - 25 min',
+        details: 'Cafe,Coffee',
+        distance: '0.1 km',
+        isRowLayout: true,
+        cardType: RestaurantsCardType.allRestaurants);
   }
 
   Widget _cardType3() {
@@ -140,35 +140,47 @@ class RestaurantCard extends StatelessWidget {
     required String time,
     required String details,
     required String distance,
+    required RestaurantsCardType cardType,
     bool isRowLayout = false,
   }) {
-    return Container(
-      margin: const EdgeInsets.only(right: 10),
-      width: 100.w,
-      child: isRowLayout
-          ? Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildImage(imageUrl, 20.h, 30.w,
-                    borderRadius: BorderRadius.circular(12)),
-                const CustomGap(widthFactor: .03),
-                _buildInfoSection(title, rating, time, details, distance),
-              ],
-            )
-          : Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildImage(imageUrl, 15.h, 100.w),
-                const SizedBox(height: 8),
-                _buildInfoSection(title, rating, time, details, distance),
-              ],
-            ),
+    return CustomPadding(
+      horizontalFactor: .014,
+      child: Container(
+        margin: const EdgeInsets.only(right: 10),
+        width: cardType == RestaurantsCardType.nearBy ? 50.w : 100.w,
+        child: cardType != RestaurantsCardType.nearBy
+            ? Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildImage(imageUrl, 20.h, 30.w,
+                      borderRadius: BorderRadius.circular(12)),
+                  const CustomGap(widthFactor: .03),
+                  _buildInfoSection(title, rating, time, details,
+                      cardType: cardType, distance: distance),
+                ],
+              )
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildImage(imageUrl, 15.h, 50.w),
+                  const SizedBox(height: 8),
+                  _buildInfoSection(
+                    title,
+                    rating,
+                    time,
+                    details,
+                    distance: distance,
+                    cardType: cardType,
+                  ),
+                ],
+              ),
+      ),
     );
   }
 
   Widget _buildInfoSection(
       String title, String rating, String time, String details,
-      [String distance = '']) {
+      {RestaurantsCardType? cardType, String? distance = ''}) {
     return CustomPadding(
       horizontalFactor: .03,
       child: Column(
@@ -179,7 +191,9 @@ class RestaurantCard extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
           CommonWidgets.buildRatingAndTime(rating, time),
-          _buildDetails(details, distance),
+          _buildDetails(details, distance!),
+          if (cardType == RestaurantsCardType.allRestaurants)
+            CommonWidgets.discountPercentCard(discountPercent: 'AED 15 off')
         ],
       ),
     );

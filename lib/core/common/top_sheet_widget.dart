@@ -21,8 +21,7 @@ Widget topSheetWidget(Widget child, BuildContext context) {
                 right: 0,
                 child: GestureDetector(
                   onTap: () {
-                    slidingContainerProvider
-                        .toggleContainer(); // Dismiss the container when tapped
+                    slidingContainerProvider.toggleContainer();
                   },
                   child: Container(
                     height: 100.h,

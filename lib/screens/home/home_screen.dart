@@ -2,6 +2,7 @@
 
 import 'package:careem/core/common/common_widgets.dart';
 import 'package:careem/core/common/module_widget.dart';
+import 'package:careem/core/constants/constants.dart';
 import 'package:careem/core/navigation/navigator.dart';
 import 'package:careem/core/utils/app_list.dart';
 import 'package:careem/core/utils/provider_util/provider_helper.dart';
@@ -24,25 +25,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _modulesList = AppList.modulesList;
 
-  // Helper method to generate module items (e.g., Cab, Food, Grocery, etc.)
-  // Widget _buildModules() {
-  //   return Wrap(
-  //     spacing: 7, // Horizontal spacing between items
-  //     runSpacing: 7, // Vertical spacing between items
-  //     children: List.generate(_modulesList.length, (index) {
-  //       var module = _modulesList[index];
-  //       return InkWell(
-  //         overlayColor: WidgetStateProperty.all<Color>(Colors.transparent),
-  //         onTap: () {
-  //           if (module['screen'] != null) {
-  //             NH.navigateTo(module['screen']);
-  //           }
-  //         },
-  //         child: ModuleWidget(module: module),
-  //       );
-  //     }),
-  //   );
-  // }
   Widget _buildModules() {
     return SliverGrid.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -93,17 +75,23 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           CustomPadding(
-            horizontalFactor: .03,
-            child: PrimaryButton(
-              onTap: () {
-                ProviderHelper.read
-                    .slidingContainerProvider()
-                    .toggleContainer();
-              },
-              width: .136,
-              borderRadius: 100.w,
-              child: const CustomIconWidget(
+            horizontalFactor: .04,
+            child: Container(
+              width: 14.w,
+              height: 14.w,
+              decoration: BoxDecoration(
+                color: AppColors.primaryColor,
+                borderRadius: BorderRadius.circular(100.w),
+              ),
+              // borderRadius: 100.w,
+              child: CustomIconWidget(
+                onTap: () {
+                  ProviderHelper.read
+                      .slidingContainerProvider()
+                      .toggleContainer();
+                },
                 iconData: Icons.menu_rounded,
+                size: 20.sp,
               ),
             ),
           ),
